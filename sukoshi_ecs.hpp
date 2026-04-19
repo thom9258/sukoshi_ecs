@@ -9,7 +9,7 @@
 
 #include <print>
 
-namespace alex::ecs {
+namespace sukoshi::ecs {
 
 namespace helper {
 

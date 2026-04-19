@@ -1,7 +1,9 @@
-#include "../../ecs.hpp"
+#include "../../sukoshi_ecs.hpp"
 #include <libtester/libtester.h>
 
 #include <array>
+
+using namespace sukoshi;
 
 struct component_name_t {
   std::string name;
@@ -29,10 +31,10 @@ void test_added_components_has_correct_memory_layout() {
    * c  | 3    | 2   | 1
    */
   static constexpr std::size_t max_entities = 10;
-  using manager_t = alex::ecs::manager_t<
-      alex::ecs::component_policy_t<component_name_t, max_entities>,
-      alex::ecs::component_policy_t<component_pos_t, max_entities>,
-      alex::ecs::component_policy_t<component_health_t, max_entities>>;
+  using manager_t = ecs::manager_t<
+      ecs::component_policy_t<component_name_t, max_entities>,
+      ecs::component_policy_t<component_pos_t, max_entities>,
+      ecs::component_policy_t<component_health_t, max_entities>>;
   using entity_id_t = manager_t::entity_id_t;
   using component_indices_pointer_t = manager_t::component_indices_pointer_t;
 
